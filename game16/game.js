@@ -21,8 +21,8 @@ let g16TabPrincipal = [g16reponseQuestion1, g16reponseQuestion2, g16reponseQuest
 /* tableau intermediaire bonne reponse*/
 let g16TabInter = [g16reponseQuestion1[1],g16reponseQuestion2[1],g16reponseQuestion3[1],g16reponseQuestion4[1],g16reponseQuestion5[1],g16reponseQuestion6[1],g16reponseQuestion7[1],g16reponseQuestion8[1],g16reponseQuestion9[1],g16reponseQuestion10[1]];
 
-let cont = document.getElementById('formulaire');
-let points = 0;
+let g16cont = document.getElementById('formulaire');
+let g16points = 0;
 let g16Temps = 8;
 let g16TempsMaj ="";
 let g16BonneReponse = document.createElement('div');
@@ -96,15 +96,16 @@ function g16reset(){
   cont.innerHTML="";
 }
 function g16endGame(){
-  addPoints(points);
+
   loadNextMiniGame();
 }
 if(g16Temps == 0){
   g16getRandomQA();
   g16resetTemps();
 }
-function again() {
-  points++;
+function g16again() {
+  g16points++;
+  addPoints(1);
   this.classList.add("btn","btn-success");
   window.setTimeout(function (){
     g16reset();
@@ -116,7 +117,7 @@ function again() {
     document.getElementById("point").innerHTML="points: " + points.toString();
   },1000);
 }
-function loose(){
+function g16loose(){
 
   this.classList.add("btn","btn-danger");
   window.setTimeout(function (){
